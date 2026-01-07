@@ -861,11 +861,6 @@ export default function ChatScreen({ initialMessage }: ChatScreenProps) {
             <h1 className="text-lg font-bold text-gray-900">디지털 도우미</h1>
             <p className="text-xs text-gray-500">온라인 • 대화 가능</p>
           </div>
-          <button className="p-2" aria-label="전화">
-            <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-          </button>
         </div>
       </header>
 
@@ -881,7 +876,7 @@ export default function ChatScreen({ initialMessage }: ChatScreenProps) {
                 <div
                   className={`rounded-2xl px-4 py-2 ${
                     message.sender === "user"
-                      ? "text-white"
+                      ? "text-gray-900 font-medium"
                       : "bg-white text-gray-900 shadow-sm"
                   }`}
                   style={message.sender === "user" ? { backgroundColor: '#7ace15' } : {}}
@@ -970,10 +965,16 @@ export default function ChatScreen({ initialMessage }: ChatScreenProps) {
               <button
                 key={index}
                 onClick={() => handleQuickReply(reply)}
-                className="px-4 py-2 rounded-full text-sm font-medium active:scale-95 transition-all"
-                style={{ backgroundColor: '#f0fdf4', color: '#7ace15' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e8f5e0'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f0fdf4'}
+                className="px-4 py-2 rounded-full text-sm font-semibold active:scale-95 transition-all border-2"
+                style={{ backgroundColor: '#7ace15', color: '#000000', borderColor: '#5a9e0f' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#65a012';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#7ace15';
+                  e.currentTarget.style.color = '#000000';
+                }}
               >
                 {reply}
               </button>
